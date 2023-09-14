@@ -32,6 +32,23 @@ void RW(string studentsString){
 
 }
 
+void RD(bool fuck){
+	ifstream file1("INFO.txt");
+	string line;
+	if(file1.is_open()){
+	while (std::getline(file1, line))
+	{
+				std::cout << line << std::endl;
+	}
+	//file1 << studentsString << endl;
+	}
+
+}
+
+void RD(){
+
+}
+
 int main()
 {
     Student students[] = {{
@@ -81,9 +98,9 @@ int main()
 					}
         }
     }};
-	for(int i = 0; i1 < sizeof (students) / sizeof (Student) - 1;i1++){
+		for(int i1 = 0; i1 < sizeof (students) / sizeof (Student) - 1;i1++){
 
-	}
+		}
 		for(int i = 0; i < sizeof (students) / sizeof (Student);i++){
 			Student student = students[i];
 			RW(student);
