@@ -1,17 +1,11 @@
 #include <iostream>
 
-#include "Faculty.cpp"
 #include "Entity.cpp"
+#include "Faculty.cpp"
 
 class University : public Entity {
   Faculty facultets[];
-  void showInfo() override{
-    std::cout << "University\n";
-  }
-  void writeToFile(Entity *ent, std::string) override{
-
-  }
-  void readFromFile(Entity *ent) override{
-    
-  }
+  void showInfo() override { std::cout << "University\n"; }
+  void writeToFile(Entity *ent, std::string) override {}
+  void readFromFile(Entity *ent) {}
 };

@@ -9,7 +9,7 @@ class Student : public Entity {
 public:
   virtual ~Student() { cout << "destr Student \n"; }
   void showInfo() override { cout << "STUDENT\n"; }
-  void writeToFile(Entity *ent,string fileName) override {
+  void writeToFile(Entity *ent, string fileName) override {
     try {
       ofstream file(fileName);
       file << "student\n";
@@ -24,5 +24,73 @@ public:
       std::cerr << "Generic exception occurred: " << e.what() << std::endl;
     }
   }
-  void readFromFile(Entity *ent) override {}
+  void readFromFile(Entity *ent) {}
+
+  Student &operator++() {
+    std::cout << "prefix ++ \n";
+    this->id++;
+    return *this;
+  }
+  Student operator++(int) {
+    std::cout << "postfix ++ \n";
+    return *this;
+    this->id++;
+  }
+  Student &operator--() {
+    std::cout << "prefix -- \n";
+    this->id--;
+    return *this;
+  }
+  Student operator--(int) {
+    std::cout << "postfix -- \n";
+
+    return *this;
+    this->id--;
+  }
+
+  Student operator-(int num) {
+    std::cout << "minus - \n";
+    this->id = this->id - num;
+    return *this;
+  }
+
+  Student operator+(int num) {
+    std::cout << "plus + \n";
+    this->id = this->id + num;
+
+    return *this;
+  }
+
+  Student operator*(int num) {
+    std::cout << "myltiply * \n";
+    this->id = this->id * num;
+    return *this;
+  }
+  void operator+=(int num) {
+    std::cout << "+= \n";
+    this->id -= num;
+  }
+  void operator-=(int num) {
+    std::cout << "-= \n";
+    this->id -= num;
+  }
+  Student operator*=(int num) {
+    std::cout << "*= \n";
+    this->id *= num;
+    return *this;
+  }
+  Student operator=(int num) {
+    std::cout << "=  \n";
+    this->id = num;
+    return *this;
+  }
+
+  int operator[](int num) {
+    if (this->id - num > 0) {
+      return this->id - num;
+    }
+    return 0;
+  }
+
+  template <typename T> void printSomethning(T a) { std::cout << a << "\n"; }
 };

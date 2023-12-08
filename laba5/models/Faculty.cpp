@@ -16,7 +16,7 @@ class Faculty:public Entity{
     file << this->id;
     file.close();
   }
-  void readFromFile(Entity *ent) override{
+  void readFromFile(Entity *ent){
 
   }
 };

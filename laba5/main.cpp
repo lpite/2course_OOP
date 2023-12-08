@@ -4,6 +4,8 @@
 #include "models/Faculty.cpp"
 #include "models/Student.cpp"
 #include "models/University.cpp"
+#include "models/Templated.cpp"
+
 
 using namespace std;
 
@@ -27,14 +29,40 @@ int main() {
 
   Entity *ent;
 
-  ent = new Student;
-  ent->showInfo();
+  cout << "menu" << endl;
 
-  ent = new Faculty;
-  ent->showInfo();
+  Student *stud;
 
-  ent = new University();
-  ent->showInfo();
+  cout << " create Student 0 \n create Faculty 1 \n create University 2\n";
 
+  int index = -1;
+
+  cin >> index;
+  switch (index) {
+  case 0:
+    ent = new Student;
+    ent->showInfo();
+
+    break;
+
+  case 1:
+    ent = new Faculty;
+    ent->showInfo();
+
+    break;
+  case 2:
+    ent = new University();
+    ent->showInfo();
+
+    break;
+
+  default:
+    cout << "no item selected!!!";
+    break;
+  }
+
+
+
+  Templated<string,int,int,int,int> *a = new Templated<string,int,int,int,int> ("1");
   return 0;
 }
